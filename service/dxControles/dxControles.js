@@ -10,6 +10,12 @@ angular.module('ControlesAngular')
         var ACTION_DATASOURCE = "/DataSource/Get/";
         var API_URL = 'http://localhost:64632/Api';
 
+        var varObjDX = {};
+        var objSectionDX = {};
+        dxControles.formOptions = {};
+        var index;
+        dxControles.Sections = [];
+
         var enumTipos = {
             Texto: 1,
             Numerico: 2,
@@ -25,21 +31,98 @@ angular.module('ControlesAngular')
 
         dxControles.getDataSource = function (UUID, Key) {
             //consumir service que obtiene datos de la API
-            controlesService.getDataSource(API_URL, ACTION_GET, UUID, Key)
+            return controlesService.getDataSource(API_URL, ACTION_GET, UUID, Key)
                 .then(function (response) {
-                    dxControles.transformControlToDx(response.data);
+                    objSectionDX = dxControles.transformSectionToDx(response.data.LstModApiSeccion);
+                    if (objSectionDX.IdGrupo !== 0) {
+                        //Si es diferente de 0 valida si ya esta este grupo en el listado
+                        index = dxControles.buscarIndex(objSectionDX.IdGrupo);
+                        if (index !== undefined) {
+                            dxControles.Sections[index].tabs.push(objSectionDX);
+                        }
+                        else {
+                            dxControles.Sections.push(
+                                {
+                                    itemType: 'tabbed',
+                                    IdGrupo: objSectionDX.IdGrupo,
+                                    tabs: [objSectionDX],
+                                    tabPanelOptions: {///Hace que se cargue todo aunque el tab no se este mostrando
+                                        deferRendering: false
+                                    }
+                                }
+                            );
+                        }
+                    }
+                    else {
+                        objSectionDX.itemType = 'group';
+                        dxControles.Sections.push(objSectionDX);
+                    }
+
+                    return dxControles.formOptions = {
+                        colCount: 1,
+                        labelLocation: 'top',
+                        items: dxControles.Sections,
+                        showValidationSummary : true
+                    };
+
                 }, function (error) {
-                    console.error(error);
+                    return error;
                 });
         };
 
-        dxControles.transformSectionToDx = function () {
+        dxControles.transformSectionToDx = function (data) {
             //se transforman las secciones con la configuracion Dx
+            for (var i in data) {
+                varObjDX = {
+                    caption: data[i].Nombre,
+                    title: data[i].Nombre,
+                    colCount: data[i].Columnas,
+                    IdGrupo: data[i].IdGrupo,
+                    icon: data[i].Icono
+                };
+
+                varObjDX.items = [];
+
+                var controles = data[i].LstModApiControl;
+
+                for (var j in controles) {
+                    varObjDX.items.push(dxControles.transformControlToDx(controles[j]));
+                }
+
+            }
+
+            return varObjDX;
         };
 
         dxControles.transformControlToDx = function (data) {
             //configuracion generica para todos los contoles
-            console.log(data);
+            var controlDX = {
+                label: {
+                    text: data.Nombre
+                },
+                dataField: data.IdSeccionControl,
+                isRequired: data.Requerido,
+
+                validationRules: [{
+                    type: "required",
+                    message: "Campo Requerido"
+                }],
+
+                hint: data.Caption,
+                editorOptions: {
+                    placeholder: data.Caption,
+                    maxLength: data.Longitud,
+                    value: data.ValorDefault,
+                    name: data.NombreColumna,
+                    control: data.IdTipoControl
+                },
+                cssClass: data.CssClass,
+                helpText: data.HelpText
+            };
+
+            controlDX = dxControles.getEditorType(data, controlDX);
+
+            return controlDX;
         };
 
         dxControles.getEditorType = function (objControl, varObjDX) {
@@ -83,8 +166,14 @@ angular.module('ControlesAngular')
             return varObjDX;
         };
 
-        dxControles.buscarIndex = function () {
-            //
+        dxControles.buscarIndex = function (idGrupo) {
+            //busca el index en el que se encuentra el grupo
+            var indexes = $.map(dxControles.Sections, function (obj, index) {
+                if (obj.IdGrupo === idGrupo) {
+                    return index;
+                }
+            });
+            return indexes[0];
         };
 
         dxControles.aplicarFormatoFecha = function () {

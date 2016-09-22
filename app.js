@@ -1,4 +1,4 @@
-angular.module('ControlesAngular', ['ui.bootstrap','ngRoute','ngAnimate', 'ngSanitize', 'dx']);
+angular.module('ControlesAngular', ['ui.bootstrap','ngRoute','ngAnimate','toaster', 'ngSanitize', 'dx']);
 
 angular.module('ControlesAngular').config(function($routeProvider) {
 

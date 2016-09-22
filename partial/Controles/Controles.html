@@ -8,8 +8,19 @@
         <select name="uuidSelect" class="form-control" ng-model="vm.uuidSelected" ng-options="x for x in vm.uuids" required>
             <option value="">Seleccione...</option> 
         </select>
-        <!--<span ng-show="myForm.uuidSelect.$error.required">Selecciona un UUID</span>-->
-        <button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid"> Get Data <span class="fa fa-tasks" aria-hidden="true"></span> </button>
+        <button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid"> 
+            Get Data <span class="fa fa-tasks" aria-hidden="true"></span> 
+        </button>
         <hr>
     </form>
+
+
+    <div id="myDxForm">
+        <div id="formDx" dx-form="{myData: 'jorge' , onInitialized : vm.initDxForm }"></div>
+    </div>
+
+    <hr>
+    <button type="button" class="btn btn-warning pull-right" ng-click="vm.resetFrom()" ng-disabled="!vm.limpiar">Limpiar</button>
 </div>
+
+<toaster-container></toaster-container>
