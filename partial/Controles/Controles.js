@@ -6,60 +6,39 @@ angular.module('ControlesAngular')
             controllerAs: 'vm'
         });
     })
-    .controller('ControlesCtrl', ['dxControles', 'toaster', '$location', function (dxControles, toaster, $location) {
+    .controller('ControlesCtrl',
+    ['dxControles', 'toaster', '$location',
+        function (dxControles, toaster, $location) {
+            //definiendo scope
+            var vm = this;
 
-        var vm = this;
-        vm.limpiar = false;
-        vm.uuidSelected = "";
-        vm.formInstance = {};
-        vm.dataForm = "";
-        vm.uuids = [
-            '99db8f88-c1a1-447f-ade0-3ec56c8ba13b',
-            'a65ba1f0-21cf-40c0-9040-c5deabaa844f'
-        ];
-        vm.initDxForm = function (e) {
-            vm.formInstance = e.component;
-        };
+            vm.limpiar = false;
+            vm.uuidSelected = "";
+            vm.uuids = [
+                '99db8f88-c1a1-447f-ade0-3ec56c8ba13b',
+                'a65ba1f0-21cf-40c0-9040-c5deabaa844f'
+            ];
 
-        var employeeInfo = {
-            FirstName: "John",
-            LastName: "",
-            Skype: "",
-            Email: ""
-        };
+            vm.getData = function () {
+                vm.dataForm = {};
+                dxControles.getDataSource(vm.uuidSelected)
+                    .then(function (response) {
+                        angular.element(nzForm).dxForm(response);
+                        // $("#nzForm").dxForm(response);
 
-        vm.getData = function () {
- vm.dataForm = {};
-            dxControles.getDataSource(vm.uuidSelected)
-                .then(function (response) {
-                   
-                    // console.log(response);
+                        vm.limpiar = true;
 
-                    // response.items = response.items[response.items.length - 1];
+                    }, function (error) {
+                        toaster.pop('error', "Error", "Ha ocurrido un error");
+                        console.error(error);
+                    });
 
-                    // response.onInitialized = vm.formInstance;
-                    vm.dataForm = response;
+            };
 
-                    $("#nzForm").dxForm(response);
-                    // vm.formInstance.repaint();
-                    // $("#nzForm").dxForm('instance').repaint();
-                    // console.log($("#nzForm").dxForm('instance'));
+            vm.resetFrom = function () {
+                // $("#nzForm").dxForm('instance').resetValues();
+                angular.element(nzForm).dxForm('instance').resetValues();
 
-                    // console.log(vm.formInstance);
 
-                    vm.limpiar = true;
-
-                }, function (error) {
-                    toaster.pop('error', "Error", "Ha ocurrido un error");
-                    console.error(error);
-                });
-
-        };
-
-        vm.resetFrom = function () {
-
-            // vm.formInstance.resetValues();
-            $("#nzForm").dxForm('instance').resetValues();
-
-        };
-    }]);
+            };
+        }]);

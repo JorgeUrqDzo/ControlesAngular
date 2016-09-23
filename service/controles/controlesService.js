@@ -15,7 +15,7 @@ angular.module('ControlesAngular')
 
         this.getDataSource = function (action, actionDataSource, uuid, key) {
             var url = action + actionDataSource + uuid + "?key=" + key;
-            console.log(url);
+            // console.log(url);
             return $http.get(url);
         };
     }]);
