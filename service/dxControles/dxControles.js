@@ -10,11 +10,11 @@ angular.module('ControlesAngular')
         var ACTION_DATASOURCE = "/DataSource/Get/";
         var API_URL = 'http://localhost:64632/Api';
 
-        var varObjDX = {};
-        var objSectionDX = {};
-        dxControles.formOptions = {};
-        var index;
-        dxControles.Sections = [];
+        // var varObjDX = {};
+        // var objSectionDX = {};
+        // dxControles.formOptions = {};
+        // var index;
+        // dxControles.Sections = [];
 
         var enumTipos = {
             Texto: 1,
@@ -31,6 +31,11 @@ angular.module('ControlesAngular')
 
         dxControles.getDataSource = function (UUID, Key) {
             //consumir service que obtiene datos de la API
+            var varObjDX = {};
+            var objSectionDX = {};
+            dxControles.formOptions = {};
+            var index;
+            dxControles.Sections = [];
             return controlesService.getDataSource(API_URL, ACTION_GET, UUID, Key)
                 .then(function (response) {
                     objSectionDX = dxControles.transformSectionToDx(response.data.LstModApiSeccion);
@@ -62,7 +67,7 @@ angular.module('ControlesAngular')
                         colCount: 1,
                         labelLocation: 'top',
                         items: dxControles.Sections,
-                        showValidationSummary : true
+                        showValidationSummary: true
                     };
 
                 }, function (error) {

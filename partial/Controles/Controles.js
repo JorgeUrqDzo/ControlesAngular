@@ -6,7 +6,7 @@ angular.module('ControlesAngular')
             controllerAs: 'vm'
         });
     })
-    .controller('ControlesCtrl', ['dxControles', 'toaster', function (dxControles, toaster) {
+    .controller('ControlesCtrl', ['dxControles', 'toaster', '$location', function (dxControles, toaster, $location) {
 
         var vm = this;
         vm.limpiar = false;
@@ -29,31 +29,23 @@ angular.module('ControlesAngular')
         };
 
         vm.getData = function () {
-            
+ vm.dataForm = {};
             dxControles.getDataSource(vm.uuidSelected)
                 .then(function (response) {
-
-                    // console.log(vm.formInstance);
-                    console.log(response);
-
-                    // response.showValidationSummary = true;
-                    // response.onInitialized = vm.initDxForm;
-                    // response.onInitialized = vm.initDxForm;
-
-
-
-                    vm.formInstance.updateData("myData", response.items[0].items);
-
-                    console.log(vm.formInstance.option());
-
-
-                    // vm.dataForm = response;
-
-                    vm.formInstance.repaint();
-
+                   
                     // console.log(response);
-                    // console.log(vm.formInstance);
 
+                    // response.items = response.items[response.items.length - 1];
+
+                    // response.onInitialized = vm.formInstance;
+                    vm.dataForm = response;
+
+                    $("#nzForm").dxForm(response);
+                    // vm.formInstance.repaint();
+                    // $("#nzForm").dxForm('instance').repaint();
+                    // console.log($("#nzForm").dxForm('instance'));
+
+                    // console.log(vm.formInstance);
 
                     vm.limpiar = true;
 
@@ -65,6 +57,9 @@ angular.module('ControlesAngular')
         };
 
         vm.resetFrom = function () {
-            vm.formInstance.resetValues();
+
+            // vm.formInstance.resetValues();
+            $("#nzForm").dxForm('instance').resetValues();
+
         };
     }]);
