@@ -21,12 +21,16 @@ angular.module('ControlesAngular')
 
             vm.getData = function () {
                 vm.dataForm = {};
+                angular.element('#btnGetData').button('loading');
+
                 dxControles.getDataSource(vm.uuidSelected)
                     .then(function (response) {
-                        angular.element(nzForm).dxForm(response);
+
+                        angular.element('#nzForm').dxForm(response);
                         // $("#nzForm").dxForm(response);
 
                         vm.limpiar = true;
+                        angular.element('#btnGetData').button('reset');
 
                     }, function (error) {
                         toaster.pop('error', "Error", "Ha ocurrido un error");
@@ -37,8 +41,14 @@ angular.module('ControlesAngular')
 
             vm.resetFrom = function () {
                 // $("#nzForm").dxForm('instance').resetValues();
-                angular.element(nzForm).dxForm('instance').resetValues();
+                angular.element('#nzForm').dxForm('instance').resetValues();
 
 
+            };
+
+            vm.save = function () {
+                angular.element('#pleaseWaitDialog').modal();
+                toaster.pop("success", "You have submitted the form");
+                console.log(angular.element('#nzForm').dxForm('instance').validate().isValid);
             };
         }]);

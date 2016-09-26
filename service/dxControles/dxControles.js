@@ -10,7 +10,7 @@ angular.module('ControlesAngular')
         var ACTION_DATASOURCE = "/DataSource/Get/";
         var API_URL = 'http://localhost:64632/Api';
 
-        // var varObjDX = {};
+        var varObjDX = {};
         // var objSectionDX = {};
         // dxControles.formOptions = {};
         // var index;
@@ -67,7 +67,6 @@ angular.module('ControlesAngular')
                         colCount: 1,
                         labelLocation: 'top',
                         items: dxControles.Sections,
-                        showValidationSummary: true
                     };
 
                 }, function (error) {

@@ -8,7 +8,7 @@
         <select name="uuidSelect" class="form-control" ng-model="vm.uuidSelected" ng-options="x for x in vm.uuids" required>
             <option value="">Seleccione...</option> 
         </select>
-        <button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid"> 
+        <button type="submit" id="btnGetData" class="btn btn-primary" ng-disabled="myForm.$invalid" data-loading-text="Loading..." autocomplete="off"> 
             Get Data <span class="fa fa-tasks" aria-hidden="true"></span> 
         </button>
         <hr>
@@ -18,11 +18,17 @@
     <div id="myDxForm">
         <!--<div id="formDx" dx-form="{myData: '' , onInitialized : vm.initDxForm }"></div>-->
         <div id="nzForm" dx-form="vm.dataForm"></div>
-
     </div>
 
     <hr>
-    <button type="button" class="btn btn-warning pull-right" ng-click="vm.resetFrom()" ng-disabled="!vm.limpiar">Limpiar</button>
+
+    <div class="form-inline">
+        <button type="button" class="btn btn-warning pull-right" ng-click="vm.resetFrom()" ng-disabled="!vm.limpiar">Limpiar</button>
+        <button type="button" class="btn btn-success" ng-click="vm.save()" ng-disabled="!vm.limpiar">
+            Guardar <span class="fa fa-save"></span>
+        </button>
+
+    </div>
 </div>
 
 <toaster-container></toaster-container>
