@@ -1,18 +1,26 @@
-angular.module('ControlesAngular', ['ui.bootstrap','ngRoute','ngAnimate','toaster', 'ngSanitize', 'dx']);
+angular.module('ControlesAngular', [
+    'ui.bootstrap',
+    'ngRoute',
+    'ngAnimate',
+    'toaster',
+    'ngSanitize',
+    'dx',
+    'uiSwitch'
+]);
 
-angular.module('ControlesAngular').config(function($routeProvider) {
+angular.module('ControlesAngular').config(function ($routeProvider) {
 
     /* Add New Routes Above */
-    $routeProvider.otherwise({redirectTo:'/controles'});
+    $routeProvider.otherwise({ redirectTo: '/controles' });
 
 });
 
-angular.module('ControlesAngular').run(function($rootScope) {
+angular.module('ControlesAngular').run(function ($rootScope) {
 
-    $rootScope.safeApply = function(fn) {
+    $rootScope.safeApply = function (fn) {
         var phase = $rootScope.$$phase;
         if (phase === '$apply' || phase === '$digest') {
-            if (fn && (typeof(fn) === 'function')) {
+            if (fn && (typeof (fn) === 'function')) {
                 fn();
             }
         } else {
