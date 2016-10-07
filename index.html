@@ -2,64 +2,64 @@
 <html ng-app="ControlesAngular">
 
 <head>
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <link href="app.less" type="text/css" rel="stylesheet/less">
-  <link rel= type="" href="">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="app.less" type="text/css" rel="stylesheet/less">
 </head>
 
 <body>
 
-  <!-- Livereload script for development only (stripped during dist build) -->
-  <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+    <!-- Livereload script for development only (stripped during dist build) -->
+    <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
 
-  <!-- JS from Bower Components -->
-  <script src="bower_components/less.js/dist/less.js" data-concat="false"></script>
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/lodash/dist/lodash.js"></script>
-  <script src="bower_components/moment/moment.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>  
-  <script src="bower_components/AngularJS-Toaster/toaster.js"></script>
-  <script src="bower_components/devextreme/js/dx.all.js"></script>
+    <!-- JS from Bower Components -->
+    <script src="bower_components/less.js/dist/less.js" data-concat="false"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/AngularJS-Toaster/toaster.js"></script>
+    <script src="bower_components/devextreme/js/dx.all.js"></script>
 
- <!--angular-ui-switch -->
- <script src="bower_components/angular-ui-switch/angular-ui-switch.min.js"></script>
-  <!-- Add New Bower Component JS Above -->
+    <!--angular-bootstrap-toggle-switch-->
+    <script src="bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.min.js"></script>
+
+    <!-- Add New Bower Component JS Above -->
 
 
-  <!-- Main App JS -->
-  <script src="app.js"></script>
-  <script src="partial/Controles/Controles.js"></script>
-  <script src="service/dxControles/dxControles.js"></script>
-  <script src="service/controles/controlesService.js"></script>
-  <script src="partial/Formularios/Formularios.js"></script>
-  <script src="directive/menu/menu.js"></script>
-  <script src="partial/FormulariosBandeja/FormulariosBandeja.js"></script>
-  <script src="directive/seccionesComponent/seccionesComponent.js"></script>
-  <script src="directive/seccionesConfigurationComponent/seccionesConfigurationComponent.js"></script>
-  <script src="directive/seccionesControlesConfigurationComponent/seccionesControlesConfigurationComponent.js"></script>
-  <script src="directive/seccionesControlesList/seccionesControlesList.js"></script>
-  <script src="directive/formulariosList/formulariosList.js"></script>
-  <!-- Add New Component JS Above -->
-  <div class="header">
-    <menu></menu>
-  </div>
-
-  <div>
-    <div id="content" class="container">
-      <div class="row">
-        <div ng-view>
-        </div>
-      </div>
+    <!-- Main App JS -->
+    <script src="app.js"></script>
+    <script src="partial/Controles/Controles.js"></script>
+    <script src="service/dxControles/dxControles.js"></script>
+    <script src="service/controles/controlesService.js"></script>
+    <script src="partial/Formularios/Formularios.js"></script>
+    <script src="directive/menu/menu.js"></script>
+    <script src="partial/FormulariosBandeja/FormulariosBandeja.js"></script>
+    <script src="directive/seccionesComponent/seccionesComponent.js"></script>
+    <script src="directive/seccionesConfigurationComponent/seccionesConfigurationComponent.js"></script>
+    <script src="directive/seccionesControlesConfigurationComponent/seccionesControlesConfigurationComponent.js"></script>
+    <script src="directive/seccionesControlesList/seccionesControlesList.js"></script>
+    <script src="directive/formulariosList/formulariosList.js"></script>
+    <!-- Add New Component JS Above -->
+    <div class="header">
+        <menu></menu>
     </div>
-  </div>
+
+    <div>
+        <div id="content" class="container">
+            <div class="row">
+                <div ng-view>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
