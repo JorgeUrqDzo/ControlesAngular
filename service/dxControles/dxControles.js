@@ -8,7 +8,8 @@ angular.module('ControlesAngular')
         var ACTION_SAVE = "/Controles/Guardar/";
         var ACTION_GET = "/Controles/Get/";
         var ACTION_DATASOURCE = "/DataSource/Get/";
-        var API_URL = 'http://localhost:64632/Api';
+        // var API_URL = 'http://localhost:64632/Api';
+        var API_URL = 'http://localhost/Controles/Api';
 
         var varObjDX = {};
 
