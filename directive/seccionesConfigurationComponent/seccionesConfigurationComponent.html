@@ -1,26 +1,104 @@
-    <!--<div class="col-md-8">-->
-        <h2>Configuracion</h2>
-        <div class="col-md-12">
-            <div class="row">
+<div class="col-md-12">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">Configuracion de Seccion</div>
+            <div class="panel-body">
+                <div class="row">
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">Configuracion de Seccion</div>
-                    <div class="panel-body">
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label" for="inputSmall"> input</label>
-                            <input class="form-control input-sm" type="text" id="inputSmall">
+                            <label for="txtNombreSeccion" class="control-label">Nombre:</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtNombreSeccion" placeholder="Nombre de Seccion">
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label" for="inputSmall"> input</label>
-                            <input class="form-control input-sm" type="text" id="inputSmall">
+                            <label for="txtColumnasSeccion" class="control-label">Columnas:</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtColumnasSeccion" placeholder="Numero de Columnas">
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label class="control-label" for="inputSmall"> input</label>
-                            <input class="form-control input-sm" type="text" id="inputSmall">
+                            <label for="txtTipoDeSeccion" class="control-label">Tipo de Seccion:</label>
+                            <div>
+                                <select type="text" class="input-sm form-control" id="txtTipoDeSeccion" placeholder="Tipo de Seccion">
+                                    <option value="1">Panel</option>
+                                    <option value="2">Tab</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtGrupoSeccion" class="control-label">Grupo:</label>
+                            <div class="input-group">
+                                <select type="text" class="input-sm form-control" id="txtGrupoSeccion" placeholder="Grupo">
+                                    <option value=""></option>
+                                </select>
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-default" id="btnAgregarGrupo" title="Agregar grupo"> <span class="glyphicon glyphicon-plus"></span> </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtIconoSeccion" class="control-label">Icono:</label>
+                            <div>
+                                <div class="btn-group" style="width: 100%;">
+                                    <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                                    Iconos <span class="caret"></span>
+                                </button>
+                                    <ul class="dropdown-menu" ng-model = "vm.icono">
+                                        <li><a ng-click="vm.icono = 'pencil';"><span class="glyphicon glyphicon-pencil"></span> add</a></li>
+                                        <li><a ng-click="vm.icono = 'plus';"><span class="glyphicon glyphicon-plus"></span> plus</a></li>
+                                        <li><a ng-click="vm.icono = 'time';"><span class="glyphicon glyphicon-time"></span> times</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="" class="control-label">Icono Seleccionado: </label>
+                            <p class=" text-center"><span class="glyphicon glyphicon-{{vm.icono}}"></span></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtTablaBDSeccion" class="control-label">Tablas Base de Datos:</label>
+                            <div>
+                                <select type="text" class="input-sm form-control" id="txtTablaBDSeccion" placeholder="Tablas de Base de Datos">
+                                    <option value="0">Seleccione...</option>
+                                    <option value="1">CatUsuarios</option>
+                                    <option value="2">CatEstado</option>
+                                    <option value="3">CatMunicipio</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtNombrePKSeccion" class="control-label">Nombre Primary Key:</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtNombrePKSeccion" placeholder="Nombre de Primary Key">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <!--</div>-->
-    
+    </div>
+</div>

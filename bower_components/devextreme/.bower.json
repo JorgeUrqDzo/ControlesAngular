@@ -1,6 +1,6 @@
 {
   "name": "devextreme",
-  "version": "16.1.6",
+  "version": "16.1.7",
   "description": "A blazing-fast HTML5 Data Grid and rich libraries of high-performance touch-enabled data vizualization and UI widgets",
   "moduleType": [
     "globals"
@@ -41,14 +41,13 @@
     "jszip": "^2.4.0"
   },
   "ignore": [],
-  "_release": "16.1.6",
+  "_release": "16.1.7",
   "_resolution": {
     "type": "version",
-    "tag": "16.1.6",
-    "commit": "0d3d6b11fd6ed28b025fee5cd1b995389adc9d2b"
+    "tag": "16.1.7",
+    "commit": "6e34331294a316bf257349cc2afeb6cfb9cb6713"
   },
   "_source": "https://github.com/devexpress/bower-devextreme.git",
   "_target": "^16.1.6",
-  "_originalSource": "devextreme",
-  "_direct": true
+  "_originalSource": "devextreme"
 }

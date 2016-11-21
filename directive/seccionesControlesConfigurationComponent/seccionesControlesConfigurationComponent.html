@@ -4,18 +4,95 @@
         <div class="panel panel-default">
             <div class="panel-heading">Configuracion de Controles</div>
             <div class="panel-body">
+                <div class="row">
 
-                <div class="form-group">
-                    <label class="control-label" for="inputSmall"> input</label>
-                    <input class="form-control input-sm" type="text" id="inputSmall">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputSmall"> input</label>
-                    <input class="form-control input-sm" type="text" id="inputSmall">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputSmall"> input</label>
-                    <input class="form-control input-sm" type="text" id="inputSmall">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtTituloControl" class="control-label">Titulo:</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtTituloControl" placeholder="Titulo de Control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtTipoControl" class="control-label">Tipo de Control:</label>
+                            <div>
+                                <select type="text" class="input-sm form-control" id="txtTipoControl" placeholder="Tipo de Control">
+                                    <option value="1">Button</option>
+                                    <option value="2">Text</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtLongitudControl" class="control-label">Longitud:</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtLongitudControl" placeholder="Longitud">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtValorDefaultControl" class="control-label">Valor Default:</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtValorDefaultControl" placeholder="Valor Default">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtPlaceholderControl" class="control-label">Placeholder:</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtPlaceholderControl" placeholder="Placeholder">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtTextoAyudaControl" class="control-label">Texto de Ayuda</label>
+                            <div>
+                                <input type="text" class="input-sm form-control" id="txtTextoAyudaControl" placeholder="Subtexto de Ayuda">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="swRequerido" class="control-label">Requerido:</label>
+                            <div>
+                                <div toggle-switch on-label="Si" off-label="No" class="switch-success" ng-model="switchStatus"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="txtColumnaBD" class="control-label">Columna Tabla BD:</label>
+                            <div>
+                                <select type="text" class="input-sm form-control" id="txtColumnaBD" placeholder="Columnas"> 
+                                    <option value="1">IdTabla</option>
+                                    <option value="2">Nombre</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="pull-left">
+                                <button type="submit" class="btn btn-sm btn-success">Guardar Control</button>
+                                <button type="reset" class="btn btn-sm btn-danger">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

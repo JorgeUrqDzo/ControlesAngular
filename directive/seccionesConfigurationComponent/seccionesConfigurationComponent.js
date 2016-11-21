@@ -1,5 +1,6 @@
 function seccionConfig(){
-
+   var vm = this;
+   vm.icono = "icono";
 }
 
 angular.module('ControlesAngular')
@@ -7,6 +8,7 @@ angular.module('ControlesAngular')
 
     templateUrl: 'directive/seccionesConfigurationComponent/seccionesConfigurationComponent.html',
     controller: seccionConfig,
+    controllerAs: 'vm',
     bindings:{
 
     }
